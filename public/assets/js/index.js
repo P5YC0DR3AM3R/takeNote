@@ -13,11 +13,6 @@ if (window.location.pathname === '/notes') {
   newNoteBtn = document.querySelector('.new-note');
   clearBtn = document.querySelector('.clear-btn');
   noteList = document.querySelectorAll('.list-container .list-group');
-
-  // TODO: Implement the functionality to handle POST requests to save new notes into the JSON file (`/api/notes`)
-
-  // TODO: Implement the functionality to handle DELETE requests to delete notes from the JSON file (`/api/notes/:id`)
-
 }
 
 // Show an element
@@ -40,7 +35,6 @@ const getNotes = () =>
       'Content-Type': 'application/json'
     }
   });
-  // TODO: Implement the functionality to handle GET requests for notes from the JSON file (`/api/notes`)
 
 const saveNote = (note) =>
   fetch('/api/notes', {
@@ -198,9 +192,3 @@ if (window.location.pathname === '/notes') {
 }
 
 getAndRenderNotes();
-
-// TODO: Connect this file to the back end using Express.js
-
-// TODO: The back end must store notes with a unique ID in a JSON file
-
-// TODO: Ensure that the application is prepared for deployment to Render, including any necessary configuration for production environment

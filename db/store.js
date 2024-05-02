@@ -2,6 +2,7 @@ const fs = require('fs');
 const util = require('util');
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
+const { v4: uuidv4 } = require('uuid');
 
 class Store {
 
@@ -28,11 +29,19 @@ class Store {
     }
 
     addNote (note){
-
+        this.getNotes().then((notes)=>{
+            note.id = uuidv4();
+            notes.push(note);
+            this.write(notes);
+        })
+        return this.getNotes();
     }
     
-    removeNote(){
-
+    removeNote(id){
+        this.getNotes().then((notes)=>{
+            let remainingNotes = notes.filter(note => note.id !== id);
+            return this.addNote(remainingNotes);
+        })
     }
 }
 
