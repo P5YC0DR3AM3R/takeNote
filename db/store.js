@@ -38,9 +38,9 @@ class Store {
     }
     
     removeNote(id){
-        this.getNotes().then((notes)=>{
+        return this.getNotes().then((notes)=>{
             let remainingNotes = notes.filter(note => note.id !== id);
-            return this.addNote(remainingNotes);
+            return this.write(remainingNotes);
         })
     }
 }
