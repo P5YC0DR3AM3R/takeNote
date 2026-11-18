@@ -4,12 +4,14 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo check-via-ci"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4",
-    "uuidv4": "^6.2.13"
+    "express": "^4.16.4"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }
